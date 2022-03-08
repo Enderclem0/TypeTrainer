@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/bug.xml" value="0.2945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/dark.xml" value="0.2945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/divider_vertical.xml" value="0.259" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/divider_vertical100.xml" value="0.258" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/electric.xml" value="0.2945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/fairy.xml" value="0.2945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/fighting.xml" value="0.2945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/layout/activity_game.xml" value="0.3509963768115942" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/layout/activity_main.xml" value="0.2578125" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/layout/game_efficiency.xml" value="0.25364583333333335" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TypeTrainer</string>
+    <string name="table">Table</string>
+    <string name="guess_the_efficiency">Guess the efficiency</string>
+    <string name="chose_the_defense">Chose the defense</string>
+    <string name="chose_the_attack">Chose the Attack</string>
+    <string name="quit">Quit</string>
+    <string name="title">TypeTrainer</string>
+    <string name="_0x">0x</string>
+    <string name="_0_5x">0.5x</string>
+    <string name="_4x">4x</string>
+    <string name="_1x">1x</string>
+    <string name="_2x">2x</string>
+    <string name="typedef2">typeDef2</string>
+    <string name="typedef">type def</string>
+    <string name="type_atq">type atq</string>
+</resources>

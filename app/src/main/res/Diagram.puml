@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+interface Game{
+
+}
+
+class GuessEfficiencyGame implements Game
+class GuessDefenseGame implements Game
+class GuessOffenseGame implements Game
+class Type {
+TypeEnum type
+HashMap<TypeEnum, HashMap<String,Float>> Efficiency
+--
+public getEfficiency(TypeEnum typeAtq, TypeEnum typeDef) : Float
+public getEfficiency(TypeEnum typeAtq, TypeEnum typeDef1, TypeEnum typeDef2) : Float
+public getEfficientAttack(TypeEnum otherType) : Float
+public getEfficientDefense() : TypeEnum
+public getEfficientAttack() : TypeEnum
+}
+
+enum TypeEnum {
+    STEEL,
+    FIGHTING,
+    DRAGON,
+    WATER,
+    ELECTRIC,
+    FAIRY,
+    FIRE,
+    ICE,
+    BUG,
+    NORMAL,
+    GRASS,
+    POISON,
+    PSYCHIC,
+    ROCK,
+    GROUND,
+    GHOST,
+    DARK,
+    FLYING
+}
+
+TypeEnum->Type
+@enduml
