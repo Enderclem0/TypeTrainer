@@ -8,42 +8,24 @@
 
     <Button
         android:id="@+id/buttonTable"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:text="@string/table"
         app:layout_constraintBottom_toTopOf="@+id/buttonExit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playList" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonPlay" />
 
-    <LinearLayout
-        android:id="@+id/playList"
-        android:layout_width="0dp"
+
+    <Button
+        android:id="@+id/buttonPlay"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:text="@string/play"
         app:layout_constraintBottom_toTopOf="@+id/buttonTable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView">
-
-        <Button
-            android:id="@+id/buttonPlayEfficiency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/guess_the_efficiency" />
-
-        <Button
-            android:id="@+id/buttonPlayDefense"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/chose_the_defense" />
-
-        <Button
-            android:id="@+id/buttonPlayAttack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/chose_the_attack" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
     <Button
         android:id="@+id/buttonExit"
@@ -53,16 +35,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buttonTable" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonTable" />
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/title"
-        app:layout_constraintBottom_toTopOf="@+id/playList"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPlay"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

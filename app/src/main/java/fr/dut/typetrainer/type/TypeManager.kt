@@ -1,37 +1,40 @@
 package fr.dut.typetrainer.type
 
-import android.media.Image
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
 import me.sargunvohra.lib.pokekotlin.model.NamedApiResource
 import me.sargunvohra.lib.pokekotlin.model.Type
-import java.util.*
 
 class TypeManager {
     private val typeList = mutableListOf<Type>()
     private var loading = true
+
     init {
-        CoroutineScope(Dispatchers.IO).launch{
+        CoroutineScope(Dispatchers.IO).launch {
             fillTypeList()
         }
     }
+
+    fun isLoading() = loading
     private fun fillTypeList() {
         val pokeApiClient = PokeApiClient()
-        val typeNameList = pokeApiClient.getTypeList(0,18)
+        val typeNameList = pokeApiClient.getTypeList(0, 18)
         for (type in typeNameList.results) {
             typeList.add(pokeApiClient.getType(type.id))
         }
         loading = false
     }
-    fun getRandomType() : Type {
+
+    fun getRandomType(): Type {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
         return typeList.random()
     }
-    private fun getDifferentRandomType(types: List<Type>) : Type {
+
+    private fun getDifferentRandomType(types: List<Type>): Type {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
@@ -42,15 +45,17 @@ class TypeManager {
         }
         return typeListCopy.random()
     }
-    fun getTypeCombination() : Array<Type> {
+
+    fun getTypeCombination(): Array<Type> {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
         val type1 = getRandomType()
         val type2 = getDifferentRandomType(listOf(type1))
-        return arrayOf(type1,type2)
+        return arrayOf(type1, type2)
     }
-    fun getEfficiency(typeAtq: Type, typeDef: Type) : Double {
+
+    fun getEfficiency(typeAtq: Type, typeDef: Type): Double {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
@@ -65,7 +70,8 @@ class TypeManager {
         }
         return 1.0
     }
-    private fun containsType(list : List<NamedApiResource>,type:Type) : Boolean {
+
+    private fun containsType(list: List<NamedApiResource>, type: Type): Boolean {
         for (namedApiResource in list) {
             if (namedApiResource.name == type.name) {
                 return true
@@ -73,11 +79,12 @@ class TypeManager {
         }
         return false
     }
-    fun getEfficiency(typeAtq: Type, typeDef1:  Type, typeDef: Type) : Double{
-        return getEfficiency(typeAtq,typeDef) * getEfficiency(typeDef1,typeDef)
+
+    fun getEfficiency(typeAtq: Type, typeDef1: Type, typeDef: Type): Double {
+        return getEfficiency(typeAtq, typeDef) * getEfficiency(typeDef1, typeDef)
     }
 
-    fun getType(name: String) : Type {
+    fun getType(name: String): Type {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }

@@ -3,14 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/bug.xml" value="0.2945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/bug.xml" value="0.33" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/dark.xml" value="0.2945" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/divider_vertical.xml" value="0.259" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/divider_vertical100.xml" value="0.258" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/dragon.xml" value="0.1945" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/electric.xml" value="0.2945" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/fairy.xml" value="0.2945" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/fighting.xml" value="0.2945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/fire.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/flying.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/ghost.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/grass.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/ground.xml" value="0.1945" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/ice.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/normal.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/poison.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/psychic.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/rock.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/steel.xml" value="0.1945" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/water.xml" value="0.1" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/layout/activity_game.xml" value="0.3509963768115942" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/layout/activity_main.xml" value="0.2578125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/layout/game_efficiency.xml" value="0.25364583333333335" />
