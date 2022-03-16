@@ -1,6 +1,8 @@
 package fr.dut.typetrainer.game
 
+import android.os.Build
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import fr.dut.typetrainer.GameActivity
 import fr.dut.typetrainer.R
 import fr.dut.typetrainer.type.TypeManager
@@ -11,10 +13,11 @@ class GameEfficiency : Game {
     private var typeManager: TypeManager? = null
     private var solution: Double? = null
     private var activity: GameActivity? = null
+    private val buttonList: MutableList<Button> = ArrayList()
     override fun getLayout(): Int {
         return R.layout.game_efficiency
     }
-
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun init(activity: GameActivity, typeManager: TypeManager) {
         this.typeManager = typeManager
         this.activity = activity
@@ -25,12 +28,17 @@ class GameEfficiency : Game {
         setButton()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun setButton() {
-        setButtonListener(activity!!.findViewById(R.id.efficiency0), 0.0)
-        setButtonListener(activity!!.findViewById(R.id.efficiency05), 0.5)
-        setButtonListener(activity!!.findViewById(R.id.efficiency1), 1.0)
-        setButtonListener(activity!!.findViewById(R.id.efficiency2), 2.0)
-        setButtonListener(activity!!.findViewById(R.id.efficiency4), 4.0)
+        buttonList.add(activity!!.findViewById(R.id.efficiency1))
+        buttonList.add(activity!!.findViewById(R.id.efficiency2))
+        buttonList.add(activity!!.findViewById(R.id.efficiency4))
+        buttonList.add(activity!!.findViewById(R.id.efficiency05))
+        buttonList.add(activity!!.findViewById(R.id.efficiency025))
+        buttonList.add(activity!!.findViewById(R.id.efficiency0))
+        buttonList.forEach {
+            it.setOnClickListener { revealSolution() }
+        }
     }
 
     private fun setImage(typeAttack: Type, typeDef1: Type, typeDef2: Type? = null) {
@@ -61,13 +69,14 @@ class GameEfficiency : Game {
             layout?.addView(imageViewDef2)
         }
     }
-
-    private fun setButtonListener(button: Button, efficiency: Double) {
-        button.setOnClickListener {
-            if (efficiency == solution!!) {
-                button.setBackgroundResource(R.color.bug)
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun revealSolution() {
+        for (button in buttonList) {
+            val eff = button.text.toString().dropLast(1).toDouble()
+            if (eff == solution) {
+                activity?.let { button.setBackgroundColor(it.getColor(R.color.bug)) }
             } else {
-                button.setBackgroundResource(R.color.fire)
+                activity?.let { button.setBackgroundColor(it.getColor(R.color.fire)) }
             }
         }
     }

@@ -15,7 +15,7 @@ class GameActivity : AppCompatActivity() {
         val game = gameManager.getGame()
         setContentView(game.getLayout())
         CoroutineScope(Dispatchers.IO).launch() {
-            val typeManager = TypeManager()
+            val typeManager = TypeManager(this@GameActivity)
             while (typeManager.isLoading()) {
                 withContext(Dispatchers.IO) {
                     Thread.sleep(100)

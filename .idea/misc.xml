@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Clement/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/divider_vertical100.xml" value="0.1" />
+        <entry key="..\:/Users/Clement/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/divider_vertical120.xml" value="0.121" />
+        <entry key="..\:/Users/Clement/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/divider_vertical50.xml" value="0.1" />
+        <entry key="..\:/Users/Clement/AndroidStudioProjects/TypeTrainer/app/src/main/res/layout/game_efficiency.xml" value="0.11235955056179775" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/bug.xml" value="0.33" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/dark.xml" value="0.2945" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/TypeTrainer/app/src/main/res/drawable/divider_vertical.xml" value="0.259" />
