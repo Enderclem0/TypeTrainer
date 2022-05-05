@@ -62,16 +62,21 @@ class TypeManager(context: Context) {
         return typeListCopy.random()
     }
 
-    fun getTypeCombination(): Array<Type> {
+    fun getTypeCombination(): Array<Type?> {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
+        val randomDouble = Math.random()
         val type1 = getRandomType()
-        val type2 = getDifferentRandomType(listOf(type1))
+        var type2 : Type? = null
+        if (randomDouble > 0.35){
+            type2 = getDifferentRandomType(listOf(type1))
+        }
+
         return arrayOf(type1, type2)
     }
 
-    fun getEfficiency(typeAtq: Type, typeDef: Type): Double {
+    private fun getEfficiency(typeAtq: Type, typeDef: Type): Double {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
@@ -105,6 +110,24 @@ class TypeManager(context: Context) {
             }
         }
         throw IllegalStateException("Type not found")
+    }
+    fun getMostEffectiveDefenseType(typeAtq: Type): Type {
+        if (loading) {
+            throw IllegalStateException("Type list is loading")
+        }
+        var maxEfficiency = 0.0
+        var maxEfficiencyType: Type? = null
+        for (typeDef in typeList) {
+            val efficiency = getEfficiency(typeAtq, typeDef)
+            if (efficiency > maxEfficiency) {
+                maxEfficiency = efficiency
+                maxEfficiencyType = typeDef
+                if (maxEfficiency == 2.0) {
+                    break
+                }
+            }
+        }
+        return maxEfficiencyType!!
     }
 
     fun getMostEffectiveAttackType(typeDef:Type): Type{
@@ -214,8 +237,14 @@ class TypeManager(context: Context) {
         return neutralType
     }
 
-    fun getEfficiency(typeAtq: Type, typeDef1: Type, typeDef: Type): Double {
+    fun getEfficiency(typeAtq: Type, typeDef1: Type, typeDef: Type?): Double {
+        if (loading) {
+            throw IllegalStateException("Type list is loading")
+        }
         val eff1 = getEfficiency(typeAtq, typeDef1)
+        if (typeDef == null){
+            return eff1
+        }
         val eff2 = getEfficiency(typeAtq, typeDef)
         Log.d("TypeManager", "Efficiency of ${typeAtq.name} against ${typeDef1.name} is $eff1")
         Log.d("TypeManager", "Efficiency of ${typeAtq.name} against ${typeDef.name} is $eff2")

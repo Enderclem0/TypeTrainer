@@ -23,8 +23,8 @@ class GameEfficiency : Game {
         this.activity = activity
         val typeAttack = typeManager.getRandomType()
         val typeDefense = typeManager.getTypeCombination()
-        solution = typeManager.getEfficiency(typeAttack, typeDefense[0], typeDefense[1])
-        setImage(typeAttack, typeDefense[0], typeDefense[1])
+        solution = typeManager.getEfficiency(typeAttack, typeDefense[0]!!,typeDefense[1])
+        setImage(typeAttack, typeDefense[0]!!, typeDefense[1])
         setButton()
     }
 
