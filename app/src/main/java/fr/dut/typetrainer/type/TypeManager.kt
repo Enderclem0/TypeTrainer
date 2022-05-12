@@ -8,18 +8,18 @@ import kotlinx.coroutines.launch
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
 import me.sargunvohra.lib.pokekotlin.model.NamedApiResource
 import me.sargunvohra.lib.pokekotlin.model.Type
-import kotlin.math.log
 
 class TypeManager(context: Context) {
     private val typeList = mutableListOf<Type>()
     private var loading = true
+    var oddsOfDoubleType = 0.35
     init {
-        val sharedPreferences = context.getSharedPreferences("type", Context.MODE_PRIVATE)
+        val sharedPreferences = context.getSharedPreferences("type", Context.MODE_PRIVATE) //save the type list in cache
         val typeListString = sharedPreferences.getString("typeList", "")
         val gson = Gson()
         if (typeListString != "") {
             Log.d("TypeManager", "Loading type list from shared preferences")
-            Log.d("TypeManager","Type list: $typeListString");
+            Log.d("TypeManager","Type list: $typeListString")
             val typeListJson = gson.fromJson(typeListString, Array<Type>::class.java)
             typeList.addAll(typeListJson)
             loading = false
@@ -66,10 +66,10 @@ class TypeManager(context: Context) {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
-        val randomDouble = Math.random()
+        val randomDouble = Math.random() // Odds of getting 2 types
         val type1 = getRandomType()
         var type2 : Type? = null
-        if (randomDouble > 0.35){
+        if (randomDouble > oddsOfDoubleType) {
             type2 = getDifferentRandomType(listOf(type1))
         }
 
@@ -100,7 +100,7 @@ class TypeManager(context: Context) {
         }
         return false
     }
-    fun getType(id:Int): Type{
+    /*fun getType(id:Int): Type{
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
@@ -110,8 +110,8 @@ class TypeManager(context: Context) {
             }
         }
         throw IllegalStateException("Type not found")
-    }
-    fun getMostEffectiveDefenseType(typeAtq: Type): Type {
+    }*/
+    /*fun getMostEffectiveDefenseType(typeAtq: Type): Type {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
@@ -128,9 +128,9 @@ class TypeManager(context: Context) {
             }
         }
         return maxEfficiencyType!!
-    }
+    }*/
 
-    fun getMostEffectiveAttackType(typeDef:Type): Type{
+    /*fun getMostEffectiveAttackType(typeDef:Type): Type{
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
@@ -150,8 +150,8 @@ class TypeManager(context: Context) {
             throw IllegalStateException("No more types available")
         }
         return mostEffectiveAttackType
-    }
-    fun getMostEffectiveAttackType(typeDef1:Type,typeDef2:Type): Type {
+    }*/
+    /*fun getMostEffectiveAttackType(typeDef1:Type,typeDef2:Type): Type {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
@@ -163,35 +163,45 @@ class TypeManager(context: Context) {
         val halfDef2 = getHalfDamageType(typeDef2)
         val noDef1 = getNoDamageType(typeDef1)
         val noDef2 = getNoDamageType(typeDef2)
-        //Super effective
+
+        //Super effective 4
         val super4 = superDef1.intersect(superDef2)
         if (super4.isNotEmpty()) {
             return super4.random()
         }
+
+        //Super effective 2
         val super2 = superDef1.intersect(neutralDef2).union(superDef2.intersect(neutralDef1))
+        if (super2.isNotEmpty()) {
+            return super2.random()
+        }
         //Neutral
         val neutral = neutralDef1.intersect(neutralDef2).union(superDef1.intersect(halfDef2)).union(halfDef1.intersect(superDef2))
         if (neutral.isNotEmpty()) {
             return neutral.random()
         }
+
         //Half effective
         val half2 = halfDef1.intersect(neutralDef1).union(halfDef2.intersect(neutralDef2))
         if (half2.isNotEmpty()) {
             return half2.random()
         }
+
+        //Quarter effective
         val half4 = halfDef1.intersect(superDef2)
         if (half4.isNotEmpty()) {
             return half4.random()
         }
+
         //No effective
         val no = noDef1.union(noDef2)
         if (no.isNotEmpty()) {
             return no.random()
         }
         throw IllegalStateException("No type found")
-    }
+    }*/
 
-    private fun getNoDamageType(typeDef1: Type): Set<Type> {
+    /*private fun getNoDamageType(typeDef1: Type): Set<Type> {
         val noDamageTypes = mutableSetOf<Type>()
         for (type in typeList) {
             if (containsType(type.damageRelations.noDamageTo, typeDef1)) {
@@ -199,9 +209,9 @@ class TypeManager(context: Context) {
             }
         }
         return noDamageTypes
-    }
+    }*/
 
-    private fun getHalfDamageType(typeDef1: Type): Set<Type> {
+    /*private fun getHalfDamageType(typeDef1: Type): Set<Type> {
         val halfDamageTypes = mutableSetOf<Type>()
         for (type in typeList) {
             if (containsType(type.damageRelations.halfDamageTo, typeDef1)) {
@@ -209,9 +219,9 @@ class TypeManager(context: Context) {
             }
         }
         return halfDamageTypes
-    }
+    }*/
 
-    private fun getDoubleDamageType(typeDef1: Type): Set<Type> {
+    /*private fun getDoubleDamageType(typeDef1: Type): Set<Type> {
         val doubleDamageTypes = mutableSetOf<Type>()
         for (type in typeList) {
             if (containsType(type.damageRelations.doubleDamageFrom, typeDef1)) {
@@ -219,9 +229,9 @@ class TypeManager(context: Context) {
             }
         }
         return doubleDamageTypes
-    }
+    }*/
 
-    private fun getNeutralTypes(typeDef: Type): Set<Type> {
+    /*private fun getNeutralTypes(typeDef: Type): Set<Type> {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
@@ -235,7 +245,7 @@ class TypeManager(context: Context) {
             }
         }
         return neutralType
-    }
+    }*/
 
     fun getEfficiency(typeAtq: Type, typeDef1: Type, typeDef: Type?): Double {
         if (loading) {
@@ -252,7 +262,7 @@ class TypeManager(context: Context) {
         return eff1 * eff2
     }
 
-    fun getType(name: String): Type {
+    /*fun getType(name: String): Type {
         if (loading) {
             throw IllegalStateException("Type list is loading")
         }
@@ -262,5 +272,5 @@ class TypeManager(context: Context) {
             }
         }
         throw IllegalArgumentException("Type $name not found")
-    }
+    }*/
 }
