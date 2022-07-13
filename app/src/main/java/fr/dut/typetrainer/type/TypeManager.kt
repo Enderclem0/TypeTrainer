@@ -12,7 +12,7 @@ import me.sargunvohra.lib.pokekotlin.model.Type
 class TypeManager(context: Context) {
     private val typeList = mutableListOf<Type>()
     private var loading = true
-    var oddsOfDoubleType = 0.35
+    private var oddsOfDoubleType = 0.35
     init {
         val sharedPreferences = context.getSharedPreferences("type", Context.MODE_PRIVATE) //save the type list in cache
         val typeListString = sharedPreferences.getString("typeList", "")
