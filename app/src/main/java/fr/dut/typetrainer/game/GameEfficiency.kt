@@ -30,6 +30,10 @@ class GameEfficiency : Game {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun setButton() {
+        val buttonNext = activity!!.findViewById<Button>(R.id.button_next)
+        buttonNext.setOnClickListener {
+            activity!!.recreate()
+        }
         buttonList.add(activity!!.findViewById(R.id.efficiency1))
         buttonList.add(activity!!.findViewById(R.id.efficiency2))
         buttonList.add(activity!!.findViewById(R.id.efficiency4))
@@ -79,5 +83,7 @@ class GameEfficiency : Game {
                 activity?.let { button.setBackgroundColor(it.getColor(R.color.fire)) }
             }
         }
+        val buttonNext = activity!!.findViewById<Button>(R.id.button_next)
+        buttonNext.visibility = android.view.View.VISIBLE
     }
 }
